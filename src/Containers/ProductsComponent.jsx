@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 const Div= styled.div`
   /* height:40ev; */
   display:grid ;
-  grid-template-columns:repeat(3,1fr) ;
+  grid-template-columns:repeat(4,1fr) ;
   box-sizing:border-box ;
-  row-gap:20px;
+  row-gap:30px;
   text-align:center;
   place-items:  center;
 
@@ -19,6 +19,7 @@ const Div= styled.div`
     padding-top:50px;
     border:1px solid black ;
     background-color: hsla(14, 100%, 53%, 0.6);
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     cursor: pointer;
   }
 

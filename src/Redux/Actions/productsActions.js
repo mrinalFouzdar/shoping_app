@@ -14,3 +14,8 @@ export const selectedProducts = (products)=>({
         payload:products,
     
 })
+export const removeselectedProducts = ()=>({
+   
+        type:REMOVE_SELECTED_PRODUCTS
+    
+})
