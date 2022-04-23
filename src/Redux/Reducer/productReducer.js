@@ -1,4 +1,4 @@
-import {SET_PRODUCTS,SELECTED_PRODUCTS,REMOVE_SELECTED_PRODUCTS} from "../Actions/productsActions"
+import {SET_PRODUCTS,SELECTED_PRODUCTS,REMOVE_SELECTED_PRODUCTS,FETCH_PRODUCTS} from "../Actions/productsActions"
 
 
 const intialState={
@@ -7,7 +7,15 @@ const intialState={
 
 export const productReducer=(state=intialState,{type,payload})=>{
     switch (type) {
-        case SET_PRODUCTS:
+        // case SET_PRODUCTS:
+            
+        //   return{
+        //       ...state,
+        //       products:payload
+
+        //   }
+      
+        case FETCH_PRODUCTS:
             
           return{
               ...state,

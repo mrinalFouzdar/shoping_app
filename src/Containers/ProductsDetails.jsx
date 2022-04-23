@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import {useParams} from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux';
-import {selectedProducts,removeselectedProducts} from "../Redux/Actions/productsActions"
+import {selectedProducts,removeselectedProducts,fetchProduct} from "../Redux/Actions/productsActions"
 import styled from "styled-components"
 const Div = styled.div`
  display:flex ;
@@ -46,18 +46,20 @@ function ProductsDetails() {
   const {productId} = useParams()
   const dispatch = useDispatch()
   console.log(productId);
-  const fetchProdutsDetails = async()=>{
-    const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
-    .catch((err)=>{
-      console.log("err", err)
-    })
-    dispatch(selectedProducts(response.data));
+  // const fetchProdutsDetails = async()=>{
+  //   const response = await axios.get(`https://fakestoreapi.com/products/${productId}`)
+  //   .catch((err)=>{
+  //     console.log("err", err)
+  //   })
+  //   dispatch(selectedProducts(response.data));
 
-  }
+  // }
   React.useEffect(()=>{
-    fetchProdutsDetails()
+    // fetchProdutsDetails()
+    dispatch(fetchProduct(productId))
     return ()=>{
       dispatch(removeselectedProducts())
+      
     }
   },[productId])
   return (<>{
