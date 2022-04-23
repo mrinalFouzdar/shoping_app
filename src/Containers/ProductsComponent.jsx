@@ -1,38 +1,51 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from "styled-components"
+import { Link } from 'react-router-dom'
 
 const Div= styled.div`
-  height:40ev;
+  /* height:40ev; */
   display:grid ;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr) ;
   box-sizing:border-box ;
-  align-content:center;
+  row-gap:20px;
+  text-align:center;
+  place-items:  center;
 
   .itemPerdiv{
     height:10ev ;
     width:300px ;
-    align-items:center;
-    padding:50px;
+    padding:10px;
+    padding-top:50px;
+    border:1px solid black ;
+    background-color: hsla(14, 100%, 53%, 0.6);
+    cursor: pointer;
   }
 
   img{
-    width:200px ;
+    width:80% ;
+    height: 300px ;
   }
 `
 function ProductsComponent() {
   const products = useSelector((state)=>state.allProducts.products)
   // console.log(products);
   return (
-    <Div>
+    <Div> { products.length === 0 ?
+      <>
+      <h1>...loading</h1>
+        
+      </>:<>
       {
         products.map((items)=><div key={items.id} className="itemPerdiv" >
+          <Link to={`/product/${items.id}`}>
           <img src={items.image} alt="" />
           <h5>{items.title}</h5>
           <p>{items.price}</p>
+          </Link>
         </div>)
       }
+      </>}
     </Div>
   )
 }
