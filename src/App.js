@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { Route,  Routes } from 'react-router-dom';
 import './App.css';
+import Header from './Containers/Header';
+import Navbar from './Containers/Navbar';
+import ProductsDetails from './Containers/ProductsDetails';
+import ProductsList from './Containers/ProductsList';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      {/* <Navbar/> */}
+         <Header/>
+      <Routes>
+         
+         <Route path='/' element={<ProductsList/>}/>
+         <Route path='/product/:productId' element={<ProductsDetails/>}/>
+         <Route>404 Not Found</Route>
+      </Routes>
     </div>
   );
 }
